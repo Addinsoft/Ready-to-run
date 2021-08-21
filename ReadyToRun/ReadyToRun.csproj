@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>ReadyToRun</RootNamespace>
+    <Authors>Addinsoft</Authors>
+    <Description>XLSTAT Ready to run library is a small .NET library written in C#, to create Microsoft Excel files in the XLSM format with a XLSTAT preconfigured analyse.  
+The file generated with the library contains a **Start** sheet which has a button to launch the preconfigured XLSTAT analysis. It also has sheet for data.  
+XLSTAT is available on www.xlstat.com.</Description>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Ressources\drawing1.xml" />
+    <None Remove="Ressources\Template.xlsm" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Ressources\drawing1.xml">
+      <CustomToolNamespace>XLSTAT</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ressources\Template.xlsm">
+      <CustomToolNamespace>XLSTAT</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.95.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Ressources\strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Ressources\strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
