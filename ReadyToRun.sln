@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{FA2FE49E-6730-418B-9E21-44CCF2BEF110}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "Samples\API\API.csproj", "{46C0A893-1175-41D3-9E0A-2E2BE9C5B941}"
+	ProjectSection(ProjectDependencies) = postProject
+		{02225F2E-F8F3-4388-A94D-35FD04199D2B} = {02225F2E-F8F3-4388-A94D-35FD04199D2B}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinearRegression", "Samples\LinearRegression\LinearRegression.csproj", "{CF3927CE-E3EB-4488-A708-C1E1EAC86BA7}"
 EndProject

@@ -11,7 +11,12 @@ XLSTAT is available on www.xlstat.com.</Description>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Code\XLSTAT\git\Ready-to-run\ReadyToRun\ReadyToRun.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
+    <None Remove="ReadyToRun.xml" />
     <None Remove="Ressources\drawing1.xml" />
     <None Remove="Ressources\Template.xlsm" />
   </ItemGroup>

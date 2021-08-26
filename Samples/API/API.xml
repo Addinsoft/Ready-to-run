@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="T:SampleAPI.Controllers.ANCController">
+            <summary>
+            Creates a ANCOVA reday to run file.
+            </summary>  
+        </member>
+    </members>
+</doc>

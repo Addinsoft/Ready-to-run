@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ReadyToRun\ReadyToRun.csproj" />
+    <ProjectReference Include="..\XLSTAT\ReadyToRun.csproj" />
   </ItemGroup>
 
 </Project>

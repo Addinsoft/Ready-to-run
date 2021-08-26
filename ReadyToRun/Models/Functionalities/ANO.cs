@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using XLSTAT.Models.Parameters;
 using XLSTAT.Utilitties;
 
@@ -6,12 +7,19 @@ namespace XLSTAT.Models.Functionalities
 {
     public class ANO : Analyze
     {
+        [Required]
         public Data<double> Y { get; set; }
+
+        [Required]
         public Data<string> Q { get; set; }
+
         public Data<string> ObsLabels { get; set; }
+
         public Data<double> W { get; set; }
+
         public Data<double> Wr { get; set; }
-        public double Interaction { get; set; }
+
+        public double Interactions { get; set; }
 
         public ANO()
         {
@@ -42,8 +50,8 @@ namespace XLSTAT.Models.Functionalities
             if (Wr is not null && Wr.Table.Length > 0)
                 Parameters.Add(new RefEdit<double>("RefEdit_Wr", Wr, new CheckBox("CheckBox_Wr", true)));
 
-            if (Interaction > 0)
-                Parameters.Add(new TextBox<double>("TextBoxLevel", Interaction, new CheckBox("CheckBox_Interactions", true)));
+            if (Interactions > 0)
+                Parameters.Add(new TextBox<double>("TextBoxLevel", Interactions, new CheckBox("CheckBox_Interactions", true)));
 
         }
     }

@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ReadyToRun</name>
+    </assembly>
+    <members>
+        <member name="T:XLSTAT.Models.Analyze">
+            <summary>
+            Base class for analysis
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Analyze.BuildParameters">
+            <summary>
+            Generate parameters XLSTAT format
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Analyze.GetParametersModel">
+            <summary>
+            Generate analyse XLSTAT configuration
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Analyze.UpdateParameters">
+            <summary>
+            Load parameters from input data
+            Generate an execption if a mandatory parameter is missing
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Models.Data`1">
+            <summary>
+            Data object represents a dataset
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Functionalities.ANC.UpdateParameters">
+            <summary>
+            Load parameters from input data
+            Generate an execption if a mandatory parameter is missing
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Functionalities.ANO.UpdateParameters">
+            <summary>
+            Load parameters from input data
+            Generate an execption if a mandatory parameter is missing
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Functionalities.PCA.UpdateParameters">
+            <summary>
+            Load parameters from input data
+            Generate an execption if a mandatory parameter is missing
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Functionalities.PFM.UpdateParameters">
+            <summary>
+            Load parameters from input data
+            Generate an execption if a mandatory parameter is missing
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Functionalities.PLS.UpdateParameters">
+            <summary>
+            Load parameters from input data
+            Generate an execption if a mandatory parameter is missing
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Functionalities.REG.UpdateParameters">
+            <summary>
+            Load parameters from input data
+            Generate an execption if a mandatory parameter is missing
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Functionalities.UNI.UpdateParameters">
+            <summary>
+            Load parameters from input data
+            Generate an execption if a mandatory parameter is missing
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Models.Parameters.CheckBox">
+            <summary>
+            Checkbox parameter
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.CheckBox.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.CheckBox.GetForm">
+            <summary>
+            Generate XLSTAT parameter configuration
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Models.Parameters.Parameter">
+            <summary>
+            Base class for parameter
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.Parameter.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.Parameter.GetForm">
+            <summary>
+            Generate XLSTAT parameter configuration
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Models.Parameters.RefEdit`1">
+            <summary>
+            Refedit parameter
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.RefEdit`1.#ctor(System.String,XLSTAT.Models.Data{`0})">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.RefEdit`1.#ctor(System.String,XLSTAT.Models.Data{`0},XLSTAT.Models.Parameters.CheckBox)">
+            <summary>
+            Constructor with Checkbox
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.RefEdit`1.GetForm">
+            <summary>
+            Generate XLSTAT parameter configuration
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.RefEdit`1.GetData">
+            <summary>
+            Retrieves dataset
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Models.Parameters.TextBox`1">
+            <summary>
+            Textbox parameter
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.TextBox`1.#ctor(System.String,`0)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.TextBox`1.#ctor(System.String,`0,XLSTAT.Models.Parameters.CheckBox)">
+            <summary>
+            Constructor with Checkbox
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Parameters.TextBox`1.GetForm">
+            <summary>
+            Generate XLSTAT parameter configuration
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Models.Workspace">
+            <summary>
+            Workspace which is unique for each template generation
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Workspace.GetWorkspacePath">
+            <summary>
+            Create the unique folder name and return it
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Models.Workspace.ClearWorkspace">
+            <summary>
+            Delete the workspace
+            </summary>
+        </member>
+        <member name="T:XLSTAT.IExcel">
+            <summary>
+            Interface with Excel creation file
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.UpdateMessage(System.String)">
+            <summary>
+            Save text displayed into the 'Start' sheet 
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.UpdateParameters(XLSTAT.Models.Analyze)">
+            <summary>
+            Save XLSTAT analyse configuration
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.EnableButtonMacro">
+            <summary>
+            Replace a file broken by the Excel library to avoid a bug on shape action
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.GetXMLLocation(System.Int32)">
+            <summary>
+            Retrieve xml location from the unzipped folder
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.UnZipp">
+            <summary>
+            Unzipp the current xlsm file if necessay
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.AddData``1(ClosedXML.Excel.IXLWorksheet,XLSTAT.Models.Data{``0})">
+            <summary>
+            Save data in a Excel sheet
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.AppendData(XLSTAT.Models.Analyze)">
+            <summary>
+            Write all dataset to Excel
+            </summary>
+        </member>
+        <member name="M:XLSTAT.IExcel.Build(XLSTAT.Models.Analyze)">
+            <summary>
+            Create a new xlsm file from a generic analyze
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Ressources.strings">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.ANCOVA">
+            <summary>
+              Recherche une chaîne localisée semblable à ANCOVA.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.ANOVA">
+            <summary>
+              Recherche une chaîne localisée semblable à ANOVA.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.ClickButton">
+            <summary>
+              Recherche une chaîne localisée semblable à Click the button below to run.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.Data">
+            <summary>
+              Recherche une chaîne localisée semblable à Data.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.DataLocatedOn">
+            <summary>
+              Recherche une chaîne localisée semblable à method on data located on the.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.PCA">
+            <summary>
+              Recherche une chaîne localisée semblable à PCA.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.PFM">
+            <summary>
+              Recherche une chaîne localisée semblable à Preference mapping.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.PLS">
+            <summary>
+              Recherche une chaîne localisée semblable à PLS regression.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.REG">
+            <summary>
+              Recherche une chaîne localisée semblable à Linear regression.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.Sheet">
+            <summary>
+              Recherche une chaîne localisée semblable à sheet.
+            </summary>
+        </member>
+        <member name="P:XLSTAT.Ressources.strings.UNI">
+            <summary>
+              Recherche une chaîne localisée semblable à Descriptive staistics.
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Utilitties.Constants">
+            <summary>
+            Constants 
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Utilitties.Errors">
+            <summary>
+            Errors message used from exception
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Utilitties.InternalException">
+            <summary>
+            Internal exception 
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Utilitties.InternalException.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Utilitties.InternalException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Utilitties.Utilities">
+            <summary>
+            Utilities class 
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Utilitties.Utilities.Base26Encode(System.Int64)">
+            <summary>
+            Get letter from alphabet depending its position
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Utilitties.Utilities.ReplaceOnceInFile(System.String,System.Collections.Generic.List{System.Tuple{System.String,System.String}})">
+            <summary>
+            Replace all first occurence of the second element from the tuple by the first element
+            This function supports regex
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Utilitties.Utilities.SaveStreamToFile(System.String,System.IO.Stream)">
+            <summary>
+            Create a stream from a file
+            It is used for ressources files
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Utilitties.Utilities.GetRessource(System.String)">
+            <summary>
+            Extract ressource
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Utilitties.Utilities.GetUniqueStringID">
+            <summary>
+            Build a unique string ID without special caracters to create the workspace
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Utilitties.Utilities.ConvertObject``1(System.Object,``0@)">
+            <summary>
+            Generic function to cast object
+            </summary>
+        </member>
+        <member name="T:XLSTAT.Interface.Zip">
+            <summary>
+            Zip class utilities
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Interface.Zip.#ctor(System.String)">
+            <summary>
+            Zip constructor
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Interface.Zip.UnZipp">
+            <summary>
+            Unzipp the original file and give it the same name of the original file
+            </summary>
+        </member>
+        <member name="M:XLSTAT.Interface.Zip.ZipAndClean">
+            <summary>
+            Build the xlsm file from the unzipped folder and remove the unzipped folder
+            </summary>
+        </member>
+        <member name="T:ReadyToRun.Properties.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:ReadyToRun.Properties.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:ReadyToRun.Properties.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+        <member name="P:ReadyToRun.Properties.Resources.Template">
+            <summary>
+              Recherche une ressource localisée de type System.Byte[].
+            </summary>
+        </member>
+    </members>
+</doc>

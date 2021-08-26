@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using XLSTAT.Models.Parameters;
 using XLSTAT.Utilitties;
 
@@ -6,8 +7,11 @@ namespace XLSTAT.Models.Functionalities
 {
     public class PCA : Analyze
     {
+        [Required]
         public Data<double> Y { get; set; }
+
         public Data<string> ObsLabels { get; set; }
+
         public Data<double> W { get; set; }
 
         public PCA()

@@ -181,7 +181,7 @@ namespace XLSTAT
                     {
                         if (param is RefEdit<double> refdbl)
                             refdbl.Range = AddData(worksheet, refdbl.GetData());
-                        else if (param is RefEdit<double> refstr)
+                        else if (param is RefEdit<string> refstr)
                             refstr.Range = AddData(worksheet, refstr.GetData());
                     }
                 }

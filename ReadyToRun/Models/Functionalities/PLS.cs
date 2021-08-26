@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using XLSTAT.Models.Parameters;
 using XLSTAT.Utilitties;
 
@@ -6,10 +7,15 @@ namespace XLSTAT.Models.Functionalities
 {
     public class PLS : Analyze
     {
+        [Required]
         public Data<double> Y { get; set; }
+
         public Data<double> X { get; set; }
+        
         public Data<double> Q { get; set; }
+
         public Data<string> ObsLabels { get; set; }
+
         public Data<double> W { get; set; }
 
         public PLS()
@@ -25,7 +31,7 @@ namespace XLSTAT.Models.Functionalities
         /// </summary>
         public override void UpdateParameters()
         {
-            if (Y is null)
+            if (Y is null || (X is null && Q is null))
                 throw new InternalException(Errors.ERR_COMPULSORY_DATA + Name);
 
             Parameters = new List<Parameter>
