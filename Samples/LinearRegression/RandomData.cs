@@ -14,7 +14,7 @@ namespace CliSample
         public const string ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         public static XLSTAT.Models.Data<double> GenerateRandomData(int n, int p, string label)
         {
-            XLSTAT.Models.Data<double> data = new();
+            XLSTAT.Models.Data<double> data = new XLSTAT.Models.Data<double>();
             data.Table = new double[n][];
             data.Labels = new string[p];
             var rand = new Random();
@@ -34,7 +34,7 @@ namespace CliSample
         }
         public static XLSTAT.Models.Data<string> GenerateStringRandomData(int n, int p, string label)
         {
-            XLSTAT.Models.Data<string> data = new();
+            XLSTAT.Models.Data<string> data = new XLSTAT.Models.Data<string>();
             data.Table = new string[n][];
             data.Labels = new string[p];
             var rand = new Random();

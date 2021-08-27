@@ -11,7 +11,7 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            XLSTAT.Models.Functionalities.REG analyze = new(RandomData.GenerateRandomData(10, 2, "Y"), RandomData.GenerateRandomData(10, 2, "Y"), RandomData.GenerateStringRandomData(10, 2, "Obs"));
+            XLSTAT.Models.Functionalities.REG analyze = new XLSTAT.Models.Functionalities.REG(RandomData.GenerateRandomData(10, 2, "Y"), RandomData.GenerateRandomData(10, 2, "Y"), RandomData.GenerateStringRandomData(10, 2, "Obs"));
             XLSTAT.Utilitties.Result<string> result = XLSTAT.ReadyToRun.GenerateXLSTATFile(analyze);
             
             if (result.Success)
