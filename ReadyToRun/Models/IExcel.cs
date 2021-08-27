@@ -9,17 +9,9 @@ using XLSTAT.Models.Parameters;
 
 namespace XLSTAT
 {
-    /// <summary>
-    /// Interface with Excel creation file
-    /// </summary>
     class IExcel
     {
         private string fullPath;                        /*xlsm file path*/
-        private bool isUnzip;                           /*true if the xlsm was already unzipped*/
-        private Zip zip;                                /*zip utilitie used for its treatment*/
-        private string zipPath;                         /*zip folder path*/
-        private readonly string drawing1Res;            /*drawing1Res.xml path*/
-        private readonly List<string> sheetsname;       /*list of new sheets*/
         private int lastColumn;                         /*last column filled*/
 
         /// <summary>
@@ -29,103 +21,6 @@ namespace XLSTAT
         {
             //Load ressources into the current workspace
             fullPath = Utilities.GetRessource(Constants.TEMPLATE);
-            drawing1Res = Utilities.GetRessource(Constants.DRAWING1_FILE);
-            sheetsname = new List<string>();
-        }
-
-        /// <summary>
-        /// Save text displayed into the 'Start' sheet 
-        /// </summary>
-        public void UpdateMessage(string analysisName)
-        {
-            UnZipp();
-
-            if (sheetsname.Count > 0)
-            {
-                //build list of sheets name
-                string sheetname = sheetsname[0];
-                if (sheetsname.Count > 1)
-                {
-                    for (int i = 1; i < sheetsname.Count; ++i)
-                        sheetname += ", " + sheetsname[i];
-                }
-
-                //replace constants in the sheet with dynamics values
-                Utilities.ReplaceOnceInFile(
-                GetXMLLocation(Constants.SHAREDSTRINGS),
-                new List<Tuple<string, string>>()
-            {
-                Tuple.Create(Constants.STR1, Ressources.strings.ClickButton),
-                Tuple.Create(Constants.COLORED1, analysisName),
-                Tuple.Create(Constants.STR2, Ressources.strings.DataLocatedOn),
-                Tuple.Create(Constants.COLORED2, sheetname),
-                Tuple.Create(Constants.STR3, Ressources.strings.Sheet)
-            });
-            }
-        }
-
-        /// <summary>
-        /// Save XLSTAT analyse configuration
-        /// </summary>
-        public void UpdateParameters(Analyze model)
-        {
-            UnZipp();
-
-            //replace a constant in the xlsm file to store XLSTAT parameters
-            Utilities.ReplaceOnceInFile(
-                GetXMLLocation(Constants.DRAWINGS1),
-                new List<Tuple<string, string>>()
-            {
-                Tuple.Create(Constants.XXXXLSTATXXX, model.GetParametersModel())
-            });
-        }
-
-        /// <summary>
-        /// Replace a file broken by the Excel library to avoid a bug on shape action
-        /// </summary>
-        private void EnableButtonMacro()
-        {
-            UnZipp();
-
-            File.Copy(drawing1Res, GetXMLLocation(Constants.DRAWINGS1), true);
-        }
-
-        /// <summary>
-        /// Retrieve xml location from the unzipped folder
-        /// </summary>
-        private string GetXMLLocation(int fileId)
-        {
-            switch (fileId)
-            {
-                case Constants.SHAREDSTRINGS:
-                    return zipPath + Constants.SHAREDSTRINGS_PATH;
-                case Constants.DRAWINGS1:
-                    return zipPath + Constants.DRAWING1_PATH;
-                default:
-                    throw new InternalException(Errors.ERR_XML_LOC + fileId);
-            }
-        }
-
-        /// <summary>
-        /// Unzipp the current xlsm file if necessay
-        /// </summary>
-        private void UnZipp()
-        {
-            if (!isUnzip)
-            {
-                if (zip is null)
-                    zip = new Zip(fullPath);
-
-                if (zip is null)
-                    throw new InternalException(Errors.ERR_INIT_ZIP);
-
-                zipPath = zip.UnZipp();
-
-                if (string.IsNullOrEmpty(zipPath))
-                    throw new InternalException(Errors.ERR_UNZIPP_TEMPLATE);
-
-                isUnzip = true;
-            }
         }
 
         /// <summary>
@@ -168,15 +63,13 @@ namespace XLSTAT
         /// <summary>
         /// Write all dataset to Excel
         /// </summary>
-        public void AppendData(Analyze data)
+        public string AppendData(Analyze data)
         {
-            string sheetname = Ressources.strings.Data + (sheetsname.Count + 1);
             try
             {
                 using (XLWorkbook workbook = new XLWorkbook(fullPath))
                 {
-                    sheetsname.Add(sheetname);
-                    IXLWorksheet worksheet = workbook.AddWorksheet(sheetname);
+                    IXLWorksheet worksheet = workbook.AddWorksheet(Ressources.strings.Data);
 
                     foreach (Parameter param in data.Parameters)
                     {
@@ -194,30 +87,8 @@ namespace XLSTAT
             }
             catch
             {
-                throw new InternalException(Errors.ERR_APPEND + sheetname);
+                throw new InternalException(Errors.ERR_APPEND);
             }
-        }
-
-        /// <summary>
-        /// Create a new xlsm file from a generic analyze
-        /// </summary>
-        public string Build(Analyze data)
-        {
-            //Write all dataset
-            AppendData(data);
-            
-            //fix library bug
-            EnableButtonMacro();
-            
-            //Write XLSTAT parameters
-            UpdateParameters(data);
-
-            //Write informative message
-            UpdateMessage(data.Name);
-
-            //clean workspace
-            if (isUnzip)
-                zip.ZipAndClean();
 
             return fullPath;
         }

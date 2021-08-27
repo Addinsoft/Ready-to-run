@@ -7,7 +7,7 @@ namespace XLSTAT.Models
     /// <summary>
     /// Workspace which is unique for each template generation
     /// </summary>
-    class Workspace
+    public class Workspace
     {
         private static string folder;       /*workspace folder*/
 

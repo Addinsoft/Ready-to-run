@@ -6,7 +6,7 @@ namespace XLSTAT.Models.Parameters
     /// <summary>
     /// Checkbox parameter
     /// </summary>
-    class CheckBox : Parameter
+    public class CheckBox : Parameter
     {
         public bool Value;      /*value of the checkbox (true or false)*/
 

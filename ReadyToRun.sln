@@ -14,6 +14,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "Samples\API\API.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinearRegression", "Samples\LinearRegression\LinearRegression.csproj", "{CF3927CE-E3EB-4488-A708-C1E1EAC86BA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadyToRun.test", "ReadyToRun.test\ReadyToRun.test.csproj", "{64BFB67C-99C1-4974-95D2-21CE1008F2A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{CF3927CE-E3EB-4488-A708-C1E1EAC86BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF3927CE-E3EB-4488-A708-C1E1EAC86BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF3927CE-E3EB-4488-A708-C1E1EAC86BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64BFB67C-99C1-4974-95D2-21CE1008F2A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64BFB67C-99C1-4974-95D2-21CE1008F2A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64BFB67C-99C1-4974-95D2-21CE1008F2A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64BFB67C-99C1-4974-95D2-21CE1008F2A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

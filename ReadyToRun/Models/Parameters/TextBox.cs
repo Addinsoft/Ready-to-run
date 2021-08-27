@@ -6,7 +6,7 @@ namespace XLSTAT.Models.Parameters
     /// <summary>
     /// Textbox parameter
     /// </summary>
-    class TextBox<T> : Parameter
+    public class TextBox<T> : Parameter
     {
         public T Value;             /*value of the parameter*/
         public CheckBox Parent;     /*a checkbox if the current parameter depends from an option*/
