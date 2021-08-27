@@ -1,14 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>net472;net5.0</TargetFrameworks>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
 
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
+
+    <Authors>Addinsoft</Authors>
+
+    <Version>1.0.4</Version>
+
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+
+    <PackageProjectUrl></PackageProjectUrl>
+
+    <RepositoryUrl></RepositoryUrl>
+
+    <RepositoryType></RepositoryType>
+
+    <Description>XLSTAT Ready to run library is a small .NET library written in C#, to create Microsoft Excel files in the XLSM format with a XLSTAT preconfigured analyse. The file generated with the library contains a Start sheet which has a button to launch the preconfigured XLSTAT analysis. It also has sheet for data.</Description>
+
+    <Copyright>Addinsoft</Copyright>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Ressources\drawing1.xml" />
     <None Remove="Ressources\Template.xlsm" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -23,11 +46,6 @@
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.95.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-    <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="coverlet.collector" Version="1.3.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
