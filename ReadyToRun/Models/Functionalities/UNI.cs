@@ -31,13 +31,13 @@ namespace XLSTAT.Models.Functionalities
             {
             };
 
-            if (X is not null && X.Table.Length > 0)
+            if (X != null && X.Table.Length > 0)
                 Parameters.Add(new RefEdit<double>("RefEdit_X", X, new CheckBox("CheckBox_X", true)));
-            if (Q is not null && Q.Table.Length > 0)
+            if (Q != null && Q.Table.Length > 0)
                 Parameters.Add(new RefEdit<double>("RefEdit_Q", Q, new CheckBox("CheckBox_Q", true)));
-            if (W is not null && W.Table.Length > 0)
+            if (W != null && W.Table.Length > 0)
                 Parameters.Add(new RefEdit<double>("RefEdit_W", W, new CheckBox("CheckBox_W", true)));
-            if (G is not null && G.Table.Length > 0)
+            if (G != null && G.Table.Length > 0)
                 Parameters.Add(new RefEdit<string>("RefEdit_G", G, new CheckBox("CheckBox_G", true)));
         }
     }

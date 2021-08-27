@@ -1,16 +1,16 @@
 # XLSTAT Ready to run library
-XLSTAT Ready to run library is a small .NET library written in C#, to create Microsoft Excel files in the XLSM format with a XLSTAT preconfigured analyse.  
-The file generated with the library contains a **Start** sheet which has a button to launch the preconfigured XLSTAT analysis. It also has sheet for data.  
-XLSTAT is available on www.xlstat.com.  
+XLSTAT Ready to run library is a small .NET library written in C#, to create Microsoft Excel files in the XLSM format with an XLSTAT preconfigured analyse.  
+The file generated with the library contains a **Start** sheet which displays a button to launch the preconfigured XLSTAT analysis. It also has a **Data** sheet that contains the exported data.
+XLSTAT is available on www.xlstat.com.
 
 ## Requirements
-XLSTAT Ready to tun is based on .NET 5.0 and use ClosedXML library (https://github.com/ClosedXML/ClosedXML).  
+XLSTAT Ready to run is based on .NET Framework 4.7.2 and use ClosedXML library (https://github.com/ClosedXML/ClosedXML).  
 Visual Studio 2019 or higher is required.
 
 ## How to use it?
-To integrate XLSTAT Ready to run features you need to add a reference to the project into your project.  
-XLSTAT Ready to run use a generic data structure which contains a vector of labels and a matrix of data.  
-Definition of the main data structure: 
+To integrate XLSTAT Ready to run features you need to add a reference to the project into your project or install the nuget package.  
+XLSTAT Ready to run uses a generic data structure which contains a vector of labels and a matrix of data.  
+Definition (C#) of the main data structure: 
 
     public class Data<T>
     {
@@ -18,7 +18,7 @@ Definition of the main data structure:
         public T[][] Table { get; set; }            /*Data matrix*/
     }
 
-Then, you need to configure your analysis by calling one of the method available.  
+Then, you need to configure your analyse by calling one of the available method.  
 
     //Example to initialize a linear regression
     XLSTAT.Models.Functionalities.REG analyze = new();
@@ -152,10 +152,10 @@ Optional data:
 * **W**: observation weights
 
 ## Samples
-### CliSample
+### LinearRegresion
 This sample generates a **Template.xlsm** for a linear regression where data is randomly generated.  
 It mainly shows how to use and integrate XLSTAT Ready to run library into a C# project.
 
-### SampleAPI
+### API
 This project build an API which exposes XLSTAT Ready to run library functionnalities.  
 A swagger is also available to test and see the API.

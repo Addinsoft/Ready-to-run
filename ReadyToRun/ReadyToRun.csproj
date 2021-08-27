@@ -1,14 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>net472;net5.0</TargetFrameworks>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <RootNamespace>ReadyToRun</RootNamespace>
     <Authors>Addinsoft</Authors>
-    <Description>XLSTAT Ready to run library is a small .NET library written in C#, to create Microsoft Excel files in the XLSM format with a XLSTAT preconfigured analyse.  
-The file generated with the library contains a **Start** sheet which has a button to launch the preconfigured XLSTAT analysis. It also has sheet for data.  
+    <Description>XLSTAT Ready to run library is a small .NET library written in C#, to create Microsoft Excel files in the XLSM format with an XLSTAT preconfigured analyse.  
+The file generated with the library contains a 'Start' sheet which displays a button to launch the preconfigured XLSTAT analysis. It also has a 'Data' sheet that contains the exported data.
 XLSTAT is available on www.xlstat.com.</Description>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -19,6 +21,10 @@ XLSTAT is available on www.xlstat.com.</Description>
     <None Remove="ReadyToRun.xml" />
     <None Remove="Ressources\drawing1.xml" />
     <None Remove="Ressources\Template.xlsm" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +33,7 @@ XLSTAT is available on www.xlstat.com.</Description>
     </EmbeddedResource>
     <EmbeddedResource Include="Ressources\Template.xlsm">
       <CustomToolNamespace>XLSTAT</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 

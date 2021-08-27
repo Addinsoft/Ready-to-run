@@ -38,7 +38,7 @@ namespace XLSTAT.Utilitties
 
             foreach (Tuple<string, string> pair in list)
             {
-                Regex regex = new(Regex.Escape(pair.Item1));
+                Regex regex = new Regex(Regex.Escape(pair.Item1));
                 content = regex.Replace(content, pair.Item2, 1);
             }
 
@@ -54,13 +54,15 @@ namespace XLSTAT.Utilitties
             if (stream.Length == 0) return;
 
             // Create a FileStream object to write a stream to a file
-            using FileStream fileStream = System.IO.File.Create(fileFullPath, (int)stream.Length);
-            // Fill the bytes[] array with the stream data
-            byte[] bytesInStream = new byte[stream.Length];
-            stream.Read(bytesInStream, 0, (int)bytesInStream.Length);
+            using (FileStream fileStream = System.IO.File.Create(fileFullPath, (int)stream.Length))
+            {
+                // Fill the bytes[] array with the stream data
+                byte[] bytesInStream = new byte[stream.Length];
+                stream.Read(bytesInStream, 0, (int)bytesInStream.Length);
 
-            // Use FileStream object to write to the specified file
-            fileStream.Write(bytesInStream, 0, bytesInStream.Length);
+                // Use FileStream object to write to the specified file
+                fileStream.Write(bytesInStream, 0, bytesInStream.Length);
+            }
         }
 
         /// <summary>
@@ -68,14 +70,16 @@ namespace XLSTAT.Utilitties
         /// </summary>
         public static string GetRessource(string name)
         {
-            Assembly asm = Assembly.GetExecutingAssembly();
-            Stream fileStream = asm.GetManifestResourceStream(string.Format(Constants.RES + name, asm.GetName().Name));
-            
-            if (fileStream == null)
-                throw new InternalException(Errors.ERR_RES_LOAD.Replace(Constants.XXXX, asm.GetName().Name));
-
             string outputFile = Path.Combine(Workspace.GetWorkspacePath(), name);
-            SaveStreamToFile(outputFile, fileStream);
+            Assembly asm = Assembly.GetExecutingAssembly();
+            using (Stream fileStream = asm.GetManifestResourceStream(string.Format(Constants.RES + name, asm.GetName().Name)))
+            {
+
+                if (fileStream == null)
+                    throw new InternalException(Errors.ERR_RES_LOAD.Replace(Constants.XXXX, asm.GetName().Name));
+
+                SaveStreamToFile(outputFile, fileStream);
+            }
 
             if (string.IsNullOrEmpty(outputFile))
                 throw new InternalException(Errors.ERR_RES_EXTRACT.Replace(Constants.XXXX, asm.GetName().Name));

@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using XLSTAT.Models.Parameters;
-using Newtonsoft.Json;
 
 namespace XLSTAT
 {
@@ -96,12 +95,15 @@ namespace XLSTAT
         /// </summary>
         private string GetXMLLocation(int fileId)
         {
-            return fileId switch
+            switch (fileId)
             {
-                Constants.SHAREDSTRINGS => zipPath + Constants.SHAREDSTRINGS_PATH,
-                Constants.DRAWINGS1 => zipPath + Constants.DRAWING1_PATH,
-                _ => throw new InternalException(Errors.ERR_XML_LOC + fileId),
-            };
+                case Constants.SHAREDSTRINGS:
+                    return zipPath + Constants.SHAREDSTRINGS_PATH;
+                case Constants.DRAWINGS1:
+                    return zipPath + Constants.DRAWING1_PATH;
+                default:
+                    throw new InternalException(Errors.ERR_XML_LOC + fileId);
+            }
         }
 
         /// <summary>
@@ -132,7 +134,7 @@ namespace XLSTAT
         private string AddData<T>(IXLWorksheet worksheet, Data<T> dataRange)
         {
             string range = string.Empty;
-            if (dataRange is not null)
+            if (dataRange != null)
             {
                 int start = 1;  /*index to know from which row we start to write data*/
 
@@ -171,22 +173,24 @@ namespace XLSTAT
             string sheetname = Ressources.strings.Data + (sheetsname.Count + 1);
             try
             {
-                using var workbook = new XLWorkbook(fullPath);
-                sheetsname.Add(sheetname);
-                IXLWorksheet worksheet = workbook.AddWorksheet(sheetname);
-
-                foreach (Parameter param in data.Parameters)
+                using (XLWorkbook workbook = new XLWorkbook(fullPath))
                 {
-                    if (param.HasData)
+                    sheetsname.Add(sheetname);
+                    IXLWorksheet worksheet = workbook.AddWorksheet(sheetname);
+
+                    foreach (Parameter param in data.Parameters)
                     {
-                        if (param is RefEdit<double> refdbl)
-                            refdbl.Range = AddData(worksheet, refdbl.GetData());
-                        else if (param is RefEdit<string> refstr)
-                            refstr.Range = AddData(worksheet, refstr.GetData());
+                        if (param.HasData)
+                        {
+                            if (param is RefEdit<double> refdbl)
+                                refdbl.Range = AddData(worksheet, refdbl.GetData());
+                            else if (param is RefEdit<string> refstr)
+                                refstr.Range = AddData(worksheet, refstr.GetData());
+                        }
                     }
+                    fullPath = fullPath.Replace(Constants.TEMPLATE, Constants.RESULT);
+                    workbook.SaveAs(fullPath);
                 }
-                fullPath = fullPath.Replace(Constants.TEMPLATE, Constants.RESULT);
-                workbook.SaveAs(fullPath);
             }
             catch
             {

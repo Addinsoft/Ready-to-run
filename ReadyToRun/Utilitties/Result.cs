@@ -55,7 +55,7 @@ namespace XLSTAT.Utilitties
         }
 
         public string Message { get; }
-        public IReadOnlyCollection<Error> Errors { get; init; }
+        public IReadOnlyCollection<Error> Errors { get; set; }
     }
 
     public class ErrorResult<T> : Result<T>, IErrorResult

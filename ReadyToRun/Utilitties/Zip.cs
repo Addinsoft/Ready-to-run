@@ -23,9 +23,9 @@ namespace XLSTAT.Interface
         {
             zipFolder = originalFile;
             //remove .xlsm extension
-            zipFolder = zipFolder[0..^5]; 
+            zipFolder = zipFolder.Remove(zipFolder.Length - 5, 1); 
 
-            ZipFile.ExtractToDirectory(originalFile, zipFolder, true);
+            ZipFile.ExtractToDirectory(originalFile, zipFolder);
             return zipFolder;
         }
 

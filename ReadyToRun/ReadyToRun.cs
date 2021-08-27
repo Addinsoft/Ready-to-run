@@ -11,7 +11,7 @@ namespace XLSTAT
         {
             try
             {
-                IExcel xl = new();
+                IExcel xl = new IExcel();
                 data.UpdateParameters();
                 Byte[] bytes = File.ReadAllBytes(xl.Build(data));
                 string result = Convert.ToBase64String(bytes);
