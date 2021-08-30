@@ -15,7 +15,7 @@ namespace Example
             XLSTAT.Utilitties.Result<string> result = XLSTAT.ReadyToRun.GenerateXLSTATFile(analyze);
             
             if (result.Success)
-                File.WriteAllText(Directory.GetCurrentDirectory() + "\\result.txt", result.Data);
+                File.WriteAllBytes(Directory.GetCurrentDirectory() + "\\Template_REG.xlsm", Convert.FromBase64String(result.Data));
             else
                 Console.WriteLine(((XLSTAT.Utilitties.ErrorResult<string>)result).Message);
         }
