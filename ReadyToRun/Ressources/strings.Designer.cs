@@ -79,6 +79,15 @@ namespace XLSTAT.Ressources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à CATA.
+        /// </summary>
+        internal static string CATA {
+            get {
+                return ResourceManager.GetString("CATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Click the button below to run.
         /// </summary>
         internal static string ClickButton {
@@ -151,7 +160,7 @@ namespace XLSTAT.Ressources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Descriptive staistics.
+        ///   Recherche une chaîne localisée semblable à Descriptive statistics.
         /// </summary>
         internal static string UNI {
             get {

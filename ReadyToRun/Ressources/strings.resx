@@ -123,6 +123,9 @@
   <data name="ANOVA" xml:space="preserve">
     <value>ANOVA</value>
   </data>
+  <data name="CATA" xml:space="preserve">
+    <value>CATA</value>
+  </data>
   <data name="ClickButton" xml:space="preserve">
     <value>Click the button below to run</value>
   </data>

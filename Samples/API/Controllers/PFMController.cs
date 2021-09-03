@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SampleAPI.Models;
-using System.Text.Json;
 
 namespace SampleAPI.Controllers
 {

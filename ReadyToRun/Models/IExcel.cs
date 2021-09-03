@@ -92,5 +92,32 @@ namespace XLSTAT
 
             return fullPath;
         }
+
+        /// <summary>
+        /// Create a new dataset
+        /// </summary>
+        public string CreateFile<T>(List<Data<T>> datas)
+        {
+            try
+            {
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    IXLWorksheet worksheet = workbook.AddWorksheet(Ressources.strings.Data);
+
+                    foreach (Data<T> data in datas)
+                    {
+                          AddData(worksheet, data);
+                    }
+                    fullPath = fullPath.Replace(Constants.TEMPLATE, Constants.RESULT2);
+                    workbook.SaveAs(fullPath);
+                }
+            }
+            catch
+            {
+                throw new InternalException(Errors.ERR_APPEND);
+            }
+
+            return fullPath;
+        }
     }
 }

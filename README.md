@@ -38,6 +38,8 @@ Finally, you can convert the result into an xlsm file.
 
 A full example of a linear regression is available in the *Samples* section below.
 
+*You can hide the dialog box when the user runs the generated file by setting the following variable to true:* **hideUserForm**
+
 ## Features list
 ### Linear regression
 
@@ -154,6 +156,30 @@ Required data:
 Optional data:  
 * **ObsLabels**: observation labels
 * **W**: observation weights
+
+### CATA data analysis
+
+Use this function to analyse CATA (check-all-that-apply) data quickly and efficiently. If the CATA survey includes preference data, this tool can be used to identify drivers of liking or on the opposite, attributes that consumers consider as negative.
+
+Model:  
+
+    XLSTAT.Models.Functionalities.CATA
+
+Required data:  
+* **T**: the CATA data (0/1)
+* **P**: the data corresponding to the tested products
+* **J**: the data corresponding to the assessors
+
+Optional data:  
+* **S**: Preference data
+* **Ideal**: Activate this option if the assessors have qualified an ideal product, and specify how the ideal product is named in the Products field
+
+## Others exports
+### How to generate a simple xlsx file?
+The function *GenerateDataFile* returns a xlsx file encode in base64.
+
+### How to generate a simple csv file?
+The function *GenerateCSVFile* returns a csv file stored in a string.
 
 ## Samples
 

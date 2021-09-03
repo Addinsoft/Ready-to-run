@@ -8,7 +8,7 @@ namespace ReadyToRun.test
         [Fact]
         public void TestANC()
         {
-            ANC anc = new();           
+            ANC anc = new();
 
             Assert.False(anc.Id != 55, "ANC Id error");
             Assert.False(anc.Name != "ANCOVA", "ANC name error");
@@ -138,7 +138,7 @@ namespace ReadyToRun.test
             UNI uni = new();
 
             Assert.False(uni.Id != 9, "UNI Id error");
-             Assert.False(uni.Name != "Descriptive statistics", "UNI name error");
+            Assert.False(uni.Name != "Descriptive statistics", "UNI name error");
             Assert.False(uni.Trigram != "UNI", "UNI trigram error");
 
             uni.X = new();

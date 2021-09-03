@@ -9,6 +9,7 @@ namespace XLSTAT.Utilitties
         public const string TEMPLATE = "Template.xlsm";
         public const string DRAWING1_FILE = "drawing1.xml";
         public const string RESULT = "Result.xlsm";
+        public const string RESULT2 = "Result.xlsx";
 
         public const int SHAREDSTRINGS = 1;
         public const int DRAWINGS1 = 2;
@@ -39,6 +40,7 @@ namespace XLSTAT.Utilitties
         public const string REFEDIT = "RefEdit";
         public const string TEXTBOX = "TextBox";
         public const string CHECKBOX = "CheckBox";
+        public const string COMBOBOX = "ComboBox";
 
         public const string EOP = ",True,,True,,False,\n";
         public const string COMA2 = ",,";

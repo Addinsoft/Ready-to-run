@@ -8,13 +8,15 @@ namespace XLSTAT.Models
     /// </summary>
     public class Analyze
     {
-        public List<Parameter> Parameters;      /*list of analyse parameters*/
+        public List<Parameter> Parameters;              /*list of analyse parameters*/
 
         public string Name { get; internal set; }        /*name of the analyse*/
 
         public string Trigram { get; internal set; }     /*unique litteral analyse id*/
 
         public int Id { get; internal set; }             /*unique digit analyse id*/
+
+        public bool HideUserForm { get; set; }          /*hide the parameters user form to the end user */ 
 
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace XLSTAT.Models
         /// </summary>
         public string GetParametersModel()
         {
-            return "RunProc" + Trigram + "\n" + "Form" + Id.ToString() + ".txt" + "\n" + BuildParameters();
+            return (HideUserForm ? "_" : "") + "RunProc" + Trigram + "\n" + "Form" + Id.ToString() + ".txt" + "\n" + BuildParameters();
         }
 
         /// <summary>
