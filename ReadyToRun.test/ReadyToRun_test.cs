@@ -73,10 +73,7 @@ namespace ReadyToRun.test
             for (int j = 0; j < p; ++j)
                 X.Labels[j] = "Label " + j.ToString();
 
-            List<Data<string>> data = new();
-            data.Add(X);
-
-            string result = XLSTAT.ReadyToRun.CreateXLSXFile(data);
+            string result = XLSTAT.ReadyToRun.CreateXLSXFile(X);
 
             Assert.False(result == "", "CreateXLSXFile error");
         }
@@ -100,10 +97,7 @@ namespace ReadyToRun.test
             for (int j = 0; j < p; ++j)
                 X.Labels[j] = "Label " + j.ToString();
 
-            List<Data<string>> data = new();
-            data.Add(X);
-
-            Result<string> result = XLSTAT.ReadyToRun.GenerateDataFile(data);
+            Result<string> result = XLSTAT.ReadyToRun.GenerateDataFile(X);
 
             Assert.False(result.Data.Length < 100, "TestGenerateXLSXFile1 error");
         }

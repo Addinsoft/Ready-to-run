@@ -35,7 +35,7 @@ namespace XLSTAT
         /// <summary>
         /// Public function to create a new xlsx file from datasets
         /// </summary>
-        public static Result<string> GenerateDataFile<T>(List<Data<T>> data)
+        public static Result<string> GenerateDataFile<T>(Data<T> data)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace XLSTAT
         /// <summary>
         /// Create a new xlsx file from datasets
         /// </summary>
-        public static string CreateXLSXFile<T>(List<Data<T>> data)
+        public static string CreateXLSXFile<T>(Data<T> data)
         {
             IExcel excel = new IExcel();
 

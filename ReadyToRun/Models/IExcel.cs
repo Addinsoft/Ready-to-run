@@ -96,7 +96,7 @@ namespace XLSTAT
         /// <summary>
         /// Create a new dataset
         /// </summary>
-        public string CreateFile<T>(List<Data<T>> datas)
+        public string CreateFile<T>(Data<T> data)
         {
             try
             {
@@ -104,10 +104,8 @@ namespace XLSTAT
                 {
                     IXLWorksheet worksheet = workbook.AddWorksheet(Ressources.strings.Data);
 
-                    foreach (Data<T> data in datas)
-                    {
-                          AddData(worksheet, data);
-                    }
+                    AddData(worksheet, data);
+
                     fullPath = fullPath.Replace(Constants.TEMPLATE, Constants.RESULT2);
                     workbook.SaveAs(fullPath);
                 }
