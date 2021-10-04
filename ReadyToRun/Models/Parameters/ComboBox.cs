@@ -35,7 +35,7 @@ namespace XLSTAT.Models.Parameters
         /// </summary>
         public override string GetForm()
         {
-            return (Parent?.GetForm() ?? string.Empty) + Name + Constants.COMA2 + Value + Constants.EOP;
+            return (Parent?.GetForm() ?? string.Empty) + Name + Constants.COMBOBOX2 + Value + Constants.EOP;
         }
     }
 }

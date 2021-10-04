@@ -8,7 +8,7 @@ namespace SampleAPI.Controllers
     public class ANOController : Controller
     {
         /// <summary>
-        /// Creates an ANOVA reday to run file.
+        /// Creates an ANOVA ready to run file.
         /// </summary>  
         /// <remarks>
         /// Sample request:

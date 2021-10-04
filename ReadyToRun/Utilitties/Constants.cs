@@ -41,9 +41,11 @@ namespace XLSTAT.Utilitties
         public const string TEXTBOX = "TextBox";
         public const string CHECKBOX = "CheckBox";
         public const string COMBOBOX = "ComboBox";
+        public const string OPTIONBUTTON = "OptionButton";
 
         public const string EOP = ",True,,True,,False,\n";
         public const string COMA2 = ",,";
         public const string REFEDIT0 = ",RefEdit0,";
+        public const string COMBOBOX2 = ",ComboBox,";
     }
 }

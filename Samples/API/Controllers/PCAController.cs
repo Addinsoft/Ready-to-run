@@ -8,7 +8,7 @@ namespace SampleAPI.Controllers
     public class PCAController : Controller
     {
         /// <summary>
-        /// Creates a PCA reday to run file.
+        /// Creates a PCA ready to run file.
         /// </summary>  
         /// <remarks>
         /// Sample request:

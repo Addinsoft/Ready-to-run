@@ -152,5 +152,47 @@ namespace ReadyToRun.test
             string result = "RunProcUNI\nForm9.txt\nCheckBox_X,,True,True,,True,,False,\nRefEdit_X,RefEdit0,,True,,True,,False,\n";
             Assert.False(uni.GetParametersModel() != result, "UNI GetParametersModel error");
         }
+
+        [Fact]
+        public void TestFST()
+        {
+            FST fst = new();
+
+            Assert.False(fst.Id != 242, "FST Id error");
+            Assert.False(fst.Name != "Free sorting", "FST name error");
+            Assert.False(fst.Trigram != "FST", "FST trigram error");
+
+            fst.T = new();
+            fst.T.Table = new double[10][];
+
+            fst.UpdateParameters();
+
+            string param = fst.BuildParameters();
+            Assert.False(param == "", "FST BuildParameters error");
+
+            string result = "RunProcFST\nForm242.txt\nRefEditT,RefEdit0,,True,,True,,False,\n";
+            Assert.False(fst.GetParametersModel() != result, "FST GetParametersModel error");
+        }
+
+        [Fact]
+        public void TestIPM()
+        {
+            IPM ipm = new();
+
+            Assert.False(ipm.Id != 154, "IPM Id error");
+            Assert.False(ipm.Name != "Internal Preference Mapping", "IPM name error");
+            Assert.False(ipm.Trigram != "IPM", "IPM trigram error");
+
+            ipm.T = new();
+            ipm.T.Table = new double[10][];
+
+            ipm.UpdateParameters();
+
+            string param = ipm.BuildParameters();
+            Assert.False(param == "", "IPM BuildParameters error");
+
+            string result = "RunProcIPM\nForm154.txt\nRefEditT,RefEdit0,,True,,True,,False,\n";
+            Assert.False(ipm.GetParametersModel() != result, "IPM GetParametersModel error");
+        }
     }
 }

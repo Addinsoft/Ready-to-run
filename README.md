@@ -174,6 +174,42 @@ Optional data:
 * **S**: Preference data
 * **Ideal**: Activate this option if the assessors have qualified an ideal product, and specify how the ideal product is named in the Products field
 
+### Free sorting
+
+Use this function to analyze free sorting data in a quick and efficient way.
+
+Model:  
+
+    XLSTAT.Models.Functionalities.FST
+
+Required data:  
+* **T**: the different assessors
+
+Optional data:  
+* **ObsLabels**: observation labels
+* **Method**: Set the value to one of the following option:
+    * 0: activate this option if you want to use the STATIS method after an adapted pre-processing
+    * 1: on co-occurrence matrix: Activate this option if you want to use a Correspondence Analysis on the product co-occurrence matrix
+    * 2: Activate this option if you want to use Multiple Correspondence Analysis on raw data
+
+### Internal Preference Mapping
+
+Use this function to analyze the ratings given on P products by J assessors (consumers, experts, …).
+
+Model:  
+
+    XLSTAT.Models.Functionalities.IPM
+
+Required data:  
+* **T**: the quantitative data corresponding to P products described by J assessors
+
+Optional data:  
+* **ObsLabels**: observation labels
+* **Type**: Set the value to one of the following option to choose the PCA type:
+    * 0: correlation (normalized PCA)
+    * 1: covariance (non normalized PCA)
+    * 2: PCA on a Spearman correlation matrix
+
 ## Others exports
 ### How to generate a simple xlsx file?
 The function *GenerateDataFile* returns a xlsx file encode in base64.

@@ -8,7 +8,7 @@ namespace SampleAPI.Controllers
     public class REGController : Controller
     {
         /// <summary>
-        /// Creates a linear regression reday to run file.
+        /// Creates a linear regression ready to run file.
         /// </summary>  
         /// <remarks>
         /// Sample request:

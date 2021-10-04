@@ -8,7 +8,7 @@ namespace SampleAPI.Controllers
     public class UNIController : Controller
     {
         /// <summary>
-        /// Creates a descriptive statistic reday to run file.
+        /// Creates a descriptive statistic ready to run file.
         /// </summary>  
         /// <remarks>
         /// Sample request:

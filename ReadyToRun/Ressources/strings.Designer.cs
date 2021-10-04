@@ -115,6 +115,24 @@ namespace XLSTAT.Ressources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Free sorting.
+        /// </summary>
+        internal static string FST {
+            get {
+                return ResourceManager.GetString("FST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Internal Preference Mapping.
+        /// </summary>
+        internal static string IPM {
+            get {
+                return ResourceManager.GetString("IPM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à PCA.
         /// </summary>
         internal static string PCA {

@@ -8,7 +8,7 @@ namespace SampleAPI.Controllers
     public class CATAController : Controller
     {
         /// <summary>
-        /// Creates a CATA reday to run file.
+        /// Creates a CATA ready to run file.
         /// </summary>  
         /// <remarks>
         /// Sample request:

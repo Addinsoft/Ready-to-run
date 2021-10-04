@@ -8,7 +8,7 @@ namespace SampleAPI.Controllers
     public class ANCController : Controller
     {
         /// <summary>
-        /// Creates an ANCOVA reday to run file.
+        /// Creates an ANCOVA ready to run file.
         /// </summary>  
         /// <remarks>
         /// Sample request:

@@ -135,6 +135,12 @@
   <data name="DataLocatedOn" xml:space="preserve">
     <value>method on data located on the</value>
   </data>
+  <data name="FST" xml:space="preserve">
+    <value>Free sorting</value>
+  </data>
+  <data name="IPM" xml:space="preserve">
+    <value>Internal Preference Mapping</value>
+  </data>
   <data name="PCA" xml:space="preserve">
     <value>PCA</value>
   </data>

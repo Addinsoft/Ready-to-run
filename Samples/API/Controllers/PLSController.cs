@@ -8,7 +8,7 @@ namespace SampleAPI.Controllers
     public class PLSController : Controller
     {
         /// <summary>
-        /// Creates a PLS reday to run file.
+        /// Creates a PLS ready to run file.
         /// </summary>  
         /// <remarks>
         /// Sample request:
