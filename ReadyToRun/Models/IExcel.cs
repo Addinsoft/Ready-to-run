@@ -31,14 +31,14 @@ namespace XLSTAT
             string range = string.Empty;
             if (dataRange != null)
             {
-                int start = 10;  /*index to know from which row we start to write data*/
+                int start = 1;  /*index to know from which row we start to write data*/
 
                 //write the label first
-                if (dataRange.Labels != null && dataRange.Labels.Length > 0)
+                if (dataRange.Labels.Length > 0)
                 {
-                    for (int i = 0; i < dataRange.Labels.Length; ++i)
-                        worksheet.Cell(Utilities.Base26Encode(i + lastColumn) + (start).ToString()).Value = dataRange.Labels[i];
                     ++start;
+                    for (int i = 0; i < dataRange.Labels.Length; ++i)
+                        worksheet.Cell(Utilities.Base26Encode(i + lastColumn) + (1).ToString()).Value = dataRange.Labels[i];
                 }
 
                 int maxp = 0;   /*maximal number of column written*/
@@ -54,8 +54,7 @@ namespace XLSTAT
                 }
 
                 //build the range written for configuring XLSTAT parameter
-                n += start - 1;
-                range = worksheet.Name + "!$" + Utilities.Base26Encode(lastColumn) + "$10" + ":$" + Utilities.Base26Encode(lastColumn + maxp - 1) + "$" + n;
+                range = worksheet.Name + "!$" + Utilities.Base26Encode(lastColumn) + ":$" + Utilities.Base26Encode(lastColumn + maxp - 1);
                 lastColumn += maxp;
             }
             return range;
@@ -70,7 +69,7 @@ namespace XLSTAT
             {
                 using (XLWorkbook workbook = new XLWorkbook(fullPath))
                 {
-                    IXLWorksheet worksheet = workbook.Worksheet("Start");
+                    IXLWorksheet worksheet = workbook.AddWorksheet(Ressources.strings.Data);
 
                     foreach (Parameter param in data.Parameters)
                     {
