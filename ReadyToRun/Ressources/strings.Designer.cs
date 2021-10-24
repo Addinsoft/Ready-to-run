@@ -160,6 +160,15 @@ namespace XLSTAT.Ressources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Projective mapping.
+        /// </summary>
+        internal static string PRM {
+            get {
+                return ResourceManager.GetString("PRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Linear regression.
         /// </summary>
         internal static string REG {

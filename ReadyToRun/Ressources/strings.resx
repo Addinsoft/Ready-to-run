@@ -150,6 +150,9 @@
   <data name="PLS" xml:space="preserve">
     <value>PLS regression</value>
   </data>
+  <data name="PRM" xml:space="preserve">
+    <value>Projective mapping</value>
+  </data>
   <data name="REG" xml:space="preserve">
     <value>Linear regression</value>
   </data>

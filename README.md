@@ -209,6 +209,32 @@ Optional data:
     * 0: correlation (normalized PCA)
     * 1: covariance (non normalized PCA)
     * 2: PCA on a Spearman correlation matrix
+    
+### Projective mapping
+
+The projective mapping (or Napping) task is one of the so-called "rapid" tests that are becoming
+increasingly popular in the context of the sensory characterization of products. It consists in
+asking each subject to place products on a sheet of paper. The data collected are simply the
+coordinates of the products on the x-axis and y-axis of the sheet of paper. Each subject brings a
+table with rows (one per product) and columns. These data can be analyzed with the
+STATIS method or with Multiple Factor Analysis (MFA). While both methods have the primary
+objective of synthesizing information to graphically represent the products, they also allow for
+the determination of relationships between the subjects' answers.
+
+
+Model:  
+
+    XLSTAT.Models.Functionalities.PRM
+
+Required data:  
+* **T**: the data that correspond to the different assessors
+
+Optional data:  
+* **ObjLabels**: product labels
+* **AssesLabels**: subject labels for the display of results
+* **Method**: Set the value to one of the following option:
+    * 0: activate this option if you want to use the STATIS method
+    * 1: activate this option if you want to use Multiple Factor Analysis
 
 ## Others exports
 ### How to generate a simple xlsx file?
