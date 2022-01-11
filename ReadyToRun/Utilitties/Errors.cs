@@ -15,5 +15,7 @@ namespace XLSTAT.Utilitties
         public const string ERR_RES_EXTRACT = "The resource XXXX was not extracted properly.";
         public const string ERR_WS_INIT = "Cannot initialize the workspace ";
         public const string ERR_COMPULSORY_DATA = "Compulsoty data is missing for the ";
+        public const string ERR_LABEL_DATA_DIFFERENT = "There are not the same number of label and variable for table ";
+        public const string LABEL_REQUIRED = "Labels are required for table ";
     }
 }

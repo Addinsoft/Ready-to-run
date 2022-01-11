@@ -41,40 +41,6 @@ A full example of a linear regression is available in the *Samples* section belo
 *You can hide the dialog box when the user runs the generated file by setting the following variable to true:* **hideUserForm**
 
 ## Features list
-### Linear regression
-
-Linear regression is one of the most frequently used statistical modeling methods.  
-
-Model:  
-
-    XLSTAT.Models.Functionalities.REG
-
-Required data:  
-* **Y**: quantitative dependent variable(s)
-* **X**: quantitative explanatory variable(s)
-
-Optional data:  
-* **ObsLabels**: observation labels
-* **W**: observation weights
-* **Wr**: regression weights
-
-
-### ANOVA
-Use this model to carry out ANOVA (ANalysis Of VAriance) on one or more balanced or unbalanced factors. The advanced options enable you to choose the constraints on the model and to take into account interactions between the factors. Multiple comparison tests can be calculated.  
-
-Model:  
-
-    XLSTAT.Models.Functionalities.ANO
-
-Required data:  
-* **Y**: quantitative dependent variable(s)
-* **Q**: qualitative explanatory variable(s)
-
-Optional data:  
-* **ObsLabels**: observation labels
-* **W**: observation weights
-* **Wr**: regression weights
-* **Interaction**: interactions / level
 
 ### ANCOVA
 Use this module to model a quantitative dependent variable by using quantitative and qualitative dependent variables as part of a linear model. 
@@ -94,68 +60,22 @@ Optional data:
 * **Wr**: regression weights
 * **Interaction**: interactions / level
 
-### External Preference Mapping (PREFMAP)
-Use External Preference Mapping (PREFMAP) to model and graphically represent the preference of assessors for a series of objects depending on objective criteria or linear combinations of criteria.
+### ANOVA
+Use this model to carry out ANOVA (ANalysis Of VAriance) on one or more balanced or unbalanced factors. The advanced options enable you to choose the constraints on the model and to take into account interactions between the factors. Multiple comparison tests can be calculated.  
 
 Model:  
 
-    XLSTAT.Models.Functionalities.PFM
+    XLSTAT.Models.Functionalities.ANO
 
 Required data:  
-* **Y**: preference data  
-The table contains the various objects (products) studied in the rows, and the assessors in the columns. This is reversed in transposed mode.
-
-* **X**: configuration  
-Select the data corresponding to the objective descriptors or to a 2- or 3-dimensional configuration if a method has already been used to generate the configuration.
-
-Optional data:  
-* **ObsLabels**: observation labels
-
-### Descriptive statistics
-Use this tool to calculate descriptive statistics.
-
-Model:  
-
-    XLSTAT.Models.Functionalities.UNI
-
-Required data (minimum one of the following fields):  
-* **X**: quantitative data  
-* **Q**: qualitative data  
-* **W**: weights  
-* **G**: subsamples  
-
-### PLS regression
-Use this module to model and predict the values of one or more dependant quantitative or qualitative variables using a linear combination of one or more explanatory quantitative and/or qualitative variables, without being subject to the constraints of OLS (ordinary least square regression) on the number of variables versus the number of observations.
-
-Model:  
-
-    XLSTAT.Models.Functionalities.PLS
-
-Required data:  
-* **Y**: quantitative dependent variables
-* **X**: quantitative explanatory variables
-* **Q**: qualitative explanatory variables
-
-*Both X and Q are not required*
+* **Y**: quantitative dependent variable(s)
+* **Q**: qualitative explanatory variable(s)
 
 Optional data:  
 * **ObsLabels**: observation labels
 * **W**: observation weights
-
-### Principal Component Analysis (PCA)
-
-Use Principal Component Analysis to analyze a quantitative observations/variables table or a correlation or covariance matrix. 
-
-Model:  
-
-    XLSTAT.Models.Functionalities.PCA
-
-Required data:  
-* **Y**: observations/variables table
-
-Optional data:  
-* **ObsLabels**: observation labels
-* **W**: observation weights
+* **Wr**: regression weights
+* **Interaction**: interactions / level
 
 ### CATA data analysis
 
@@ -173,6 +93,36 @@ Required data:
 Optional data:  
 * **S**: Preference data
 * **Ideal**: Activate this option if the assessors have qualified an ideal product, and specify how the ideal product is named in the Products field
+
+### Descriptive statistics
+Use this tool to calculate descriptive statistics.
+
+Model:  
+
+    XLSTAT.Models.Functionalities.UNI
+
+Required data (minimum one of the following fields):  
+* **X**: quantitative data  
+* **Q**: qualitative data  
+* **W**: weights  
+* **G**: subsamples  
+
+### External Preference Mapping (PREFMAP)
+Use External Preference Mapping (PREFMAP) to model and graphically represent the preference of assessors for a series of objects depending on objective criteria or linear combinations of criteria.
+
+Model:  
+
+    XLSTAT.Models.Functionalities.PFM
+
+Required data:  
+* **Y**: preference data  
+The table contains the various objects (products) studied in the rows, and the assessors in the columns. This is reversed in transposed mode.
+
+* **X**: configuration  
+Select the data corresponding to the objective descriptors or to a 2- or 3-dimensional configuration if a method has already been used to generate the configuration.
+
+Optional data:  
+* **ObsLabels**: observation labels
 
 ### Free sorting
 
@@ -209,6 +159,77 @@ Optional data:
     * 0: correlation (normalized PCA)
     * 1: covariance (non normalized PCA)
     * 2: PCA on a Spearman correlation matrix
+
+
+### Linear regression
+
+Linear regression is one of the most frequently used statistical modeling methods.  
+
+Model:  
+
+    XLSTAT.Models.Functionalities.REG
+
+Required data:  
+* **Y**: quantitative dependent variable(s)
+* **X**: quantitative explanatory variable(s)
+
+Optional data:  
+* **ObsLabels**: observation labels
+* **W**: observation weights
+* **Wr**: regression weights
+
+### Multiple Factor Analysis (MFA)
+
+Use the Multiple Factor Analysis (MFA) to simultaneously analyze several tables of variables,
+and to obtain results, particularly charts, that allow to study the relationship between the
+observations, the variables and the tables. Within a table, the variables must be of the same
+type (quantitative table, qualitative table or frequency table), but the tables can be of different
+types.
+
+Model:  
+
+    XLSTAT.Models.Functionalities.MFA
+
+Required data:  
+* **Data**: Data<Data<string>> of observations/variables tables. Data<Data<string>>::Labels contains tables of labels.
+
+Optional data:  
+* **IsFrequency**: true if **Data** are frequency tables
+* **ObsLabels**: observation labels
+* **W**: observation weights
+
+### PLS regression
+Use this module to model and predict the values of one or more dependant quantitative or qualitative variables using a linear combination of one or more explanatory quantitative and/or qualitative variables, without being subject to the constraints of OLS (ordinary least square regression) on the number of variables versus the number of observations.
+
+Model:  
+
+    XLSTAT.Models.Functionalities.PLS
+
+Required data:  
+* **Y**: quantitative dependent variables
+* **X**: quantitative explanatory variables
+* **Q**: qualitative explanatory variables
+
+*Both X and Q are not required*
+
+Optional data:  
+* **ObsLabels**: observation labels
+* **W**: observation weights
+
+### Principal Component Analysis (PCA)
+
+Use Principal Component Analysis to analyze a quantitative observations/variables table or a correlation or covariance matrix. 
+
+Model:  
+
+    XLSTAT.Models.Functionalities.PCA
+
+Required data:  
+* **Y**: observations/variables table
+
+Optional data:  
+* **ObsLabels**: observation labels
+* **W**: observation weights
     
 ### Projective mapping
 

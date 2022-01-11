@@ -34,7 +34,7 @@ namespace XLSTAT
                 int start = 1;  /*index to know from which row we start to write data*/
 
                 //write the label first
-                if (dataRange.Labels.Length > 0)
+                if (dataRange.Labels != null && dataRange.Labels.Length > 0)
                 {
                     ++start;
                     for (int i = 0; i < dataRange.Labels.Length; ++i)
@@ -77,6 +77,8 @@ namespace XLSTAT
                         {
                             if (param is RefEdit<double> refdbl)
                                 refdbl.Range = AddData(worksheet, refdbl.GetData());
+                            else if (param is RefEdit<int> refint)
+                                refint.Range = AddData(worksheet, refint.GetData());
                             else if (param is RefEdit<string> refstr)
                                 refstr.Range = AddData(worksheet, refstr.GetData());
                         }

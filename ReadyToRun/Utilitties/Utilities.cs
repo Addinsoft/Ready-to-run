@@ -98,5 +98,22 @@ namespace XLSTAT.Utilitties
             GuidString = GuidString.Replace(Constants.SLASH, string.Empty);
             return GuidString.Replace(Constants.PLUS, string.Empty);
         }
+
+        /// <summary>
+        /// Loop over each value of the array to test if it is a double or not
+        /// </summary>
+        public static bool IsDoubleArray(Data<string> array)
+        {
+            for (int i = 0; i < array.Table.Length; ++i)
+            {
+                for (int j = 0; j < array.Table[i].Length; ++j)
+                {
+                    if (!double.TryParse(array.Table[i][j], out _))
+                        return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

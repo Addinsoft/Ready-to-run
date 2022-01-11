@@ -133,6 +133,15 @@ namespace XLSTAT.Ressources {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Multiple Factor Analysis (MFA).
+        /// </summary>
+        internal static string MFA {
+            get {
+                return ResourceManager.GetString("MFA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à PCA.
         /// </summary>
         internal static string PCA {

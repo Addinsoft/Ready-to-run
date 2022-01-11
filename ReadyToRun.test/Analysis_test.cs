@@ -1,4 +1,7 @@
-﻿using XLSTAT.Models.Functionalities;
+﻿using System.IO;
+using System.Reflection;
+using System.Text.Json;
+using XLSTAT.Models.Functionalities;
 using Xunit;
 
 namespace ReadyToRun.test
@@ -193,6 +196,25 @@ namespace ReadyToRun.test
 
             string result = "RunProcIPM\nForm154.txt\nRefEditT,RefEdit0,,True,,True,,False,\n";
             Assert.False(ipm.GetParametersModel() != result, "IPM GetParametersModel error");
+        }
+
+        [Fact]
+        public void TestMFA()
+        {
+            for (int i = 1; i < 4; ++i)
+            {
+                string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Data\\MFA\\MFA" + i + ".json";
+                string json = File.ReadAllText(path);
+
+                MFA mfa = JsonSerializer.Deserialize<MFA>(json);
+
+                mfa.UpdateParameters();
+
+                string pathResult = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Data\\MFA\\MFA" + i + "Result.json";
+                string jsonResult = File.ReadAllText(pathResult);
+
+                Assert.False(jsonResult == JsonSerializer.Serialize(mfa), "MFA BuildParameters error for test number " + i);
+            }
         }
     }
 }

@@ -141,6 +141,9 @@
   <data name="IPM" xml:space="preserve">
     <value>Internal Preference Mapping</value>
   </data>
+  <data name="MFA" xml:space="preserve">
+    <value>Multiple Factor Analysis (MFA)</value>
+  </data>
   <data name="PCA" xml:space="preserve">
     <value>PCA</value>
   </data>
